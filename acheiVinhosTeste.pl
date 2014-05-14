@@ -8,7 +8,7 @@
 :-dynamic nota/2.
 :-dynamic localizacao/3.
 :-dynamic regiao/2.
-:-dynamic vinicola/2.
+:-dynamic pais/2.
 :-dynamic caracteristicaPais/5.
 :-dynamic sigla/2.
 :-dynamic adjetivo/3.
@@ -27,6 +27,7 @@
 %Vinho
 vinho(cddrcs2011,'Casillero Del Diablo Reserva Cabernet Sauvignon',2011,'Tinto','Cabernet Sauvignon',13.5,carvalho8m,15,4).
 vinho(sr2008,'Sabor Real',2008,'Tinto','Tempranillo',14.5,carvalho10m,15,3.5).
+vinho(mpv2010,'Mil Piedras Viognier',2010,'Branco','Viognier',13.5,nao,8,4).
 
 nome(cddrcs2011,'Casillero Del Diablo Reserva Cabernet Sauvignon').
 safra(cddrcs2011,2011).
@@ -44,21 +45,33 @@ teoralcolico(sr2008,14.5).
 idamadurecimento(sr2008,carvalho10m).
 temperatura(sr2008,15).
 nota(sr2008,3.5).
+nome(mpv2010,'Mil Piedras Viognier').
+safra(mpv2010,2010).
+tipo(mpv2010,'Branco').
+uva(mpv2010,'Viognier').
+teoralcolico(mpv2010,13.5).
+idamadurecimento(mpv2010,nao).
+temperatura(mpv2010,8).
+nota(mpv2010,4).
 
 
 %Localizacao
-localizacao('Chile','Valle Central','Viña Concha Y Toro').
-localizacao('Espanha','Toro','Bodegas Campiña').
-localizacao( , , ).
+localizacao('Viña Concha Y Toro','Chile','Valle Central').
+localizacao('Bodegas Campiña','Espanha','Toro').
+localizacao('Benvenuto De La Serna','Argentina','Mendoza').
 
-regiao('Chile','Valle Central').
-vinicola('Chile','Viña Concha Y Toro').
-regiao('Espanha','Toro').
-vinicola('Espanha','Bodegas Campiña').
+regiao('Viña Concha Y Toro','Valle Central').
+pais('Viña Concha Y Toro','Chile').
+regiao('Bodegas Campiña','Toro').
+pais('Bodegas Campiña','Espanha').
+regiao('Benvenuto De La Serna','Mendoza').
+pais('Benvenuto De La Serna','Argentina').
+
 
 %Caracteristica Pais
 caracteristicaPais('Chile',cl, , ,frio).
 caracteristicaPais('Espanha',es, , ,frio).
+caracteristicaPais('Argentina',ar, , ,frio).
 
 sigla('Chile',cl).
 adjetivo('Chile', , ).
@@ -66,11 +79,15 @@ clima('Chile',frio).
 sigla('Espanha',es).
 adjetivo('Espanha', , ).
 clima('Espanha', frio).
+sigla('Argentina',ar).
+adjetivo('Argentina', , ).
+clima('Argentina', frio).
 
 
 %Caracteristica Vinho
 caracteristicaVinho('Rubi intenso','Frutas negras','Especiarias','Macio','Equilibrado','Frutado',cddrcs2011).
 caracteristicaVinho('Rubi','Frutas negras secas','Especiarias','Encorpado','Intenso','Saboroso',sr2008).
+caracteristicaVinho('Amarelo esverdeado','Frutas brancas','Frutas cítricas','Frutado','Equilibrado','Agradável',mpv2010).
 
 visual(cddrcs2011,'Rubi intenso').
 olfativo(cddrcs2011,'Frutas negras','Especiarias').
@@ -78,42 +95,53 @@ gustativo(cddrcs2011,'Macio','Equilibrado','Frutado').
 visual(sr2008,'Rubi').
 olfativo(sr2008,'Frutas negras','Especiarias').
 gustativo(sr2008,'Macio','Equilibrado','Frutado').
+visual(mpv2010,'Amarelo esverdeado').
+olfativo(mpv2010,'Frutas brancas','Frutas cítricas').
+gustativo(mpv2010,'Frutado','Equilibrado','Agradável').
 
 
 %Amadurecimento
 amadurecimento(carvalho8m,carvalho,'8 meses').
 amadurecimento(carvalho10m,carvalho,'10 meses').
+amadurecimento(nao,sem,'0').
 
 barril(carvalho8m,carvalho).
 tempo(carvalho8m,'8 meses').
 barril(carvalho10m,carvalho).
 tempo(carvalho10m,'10 meses').
+barril(nao,sem).
+tempo(nao,'0').
 
 
+%Peixes,frutos do mar, ave, caça, carne vermelha, suína, prato, salada,sobremesa,massa,lanche
 %Pratos
-prato('Carne assada', , , ,).
-prato('Canelone queijo', , , ,).
-prato('Costela no bafo', , , ,).
-prato('Linguiça na brasa', , , ,).
-prato('Pizza de calabresa', , , ,).
-prato('Chuleta grelhada', , , , ).
-prato('Costela ensopada', , , , ).
-prato('Massas de funghi secchi', , , , ).
-prato('Raviole de rabada', , , , ).
+prato('Carne assada',' ',' ',' ','carne vermelha').
+prato('Canelone queijo',' ',' ',' ','massa').
+prato('Costela no bafo',' ',' ',' ','carne vermelha').
+prato('Linguiça na brasa',' ',' ',' ','suína').
+prato('Pizza de calabresa',' ',' ',' ','massa').
+prato('Chuleta grelhada',' ',' ',' ','carne vermelha').
+prato('Costela ensopada',' ',' ',' ','carne vermelha').
+prato('Massa de funghi secchi',' ',' ',' ','massa').
+prato('Raviole de rabada',' ',' ',' ','massa').
+prato('Sanduiche',' ',' ',' ','lanche').
+prato('Frango grelhado',' ',' ',' ','ave').
+prato('Culinária Japonesa',' ',' ',' ','peixe').
+prato('Isca de Peixe',' ',' ',' ','peixe').
+prato('Saladas',' ',' ',' ','salada').
 
 
 %Relações entre os fatos
 origem(cddrcs2011,'Chile').
 origem(sr2008,'Espanha').
+origem(mpv2010,'Argentina').
 
-harmonizacao(cddrcs2011,'Carne assada').
-harmonizacao(cddrcs2011,'Canelone queijo').
-harmonizacao(cddrcs2011,'Costela no bafo').
-harmonizacao(cddrcs2011,'Linguiça na brasa').
-harmonizacao(cddrcs2011,'Pizza de calabresa').
-harmonizacao(sr2008,'Chuleta grelhada').
-harmonizacao(sr2008,'Costela ensopada').
-harmonizacao(sr2008,'Massas de funghi secchi').
-harmonizacao(sr2008,'Raviole de rabada').
-
+harmonizacao(cddrcs2011,'carne vermelha').
+harmonizacao(cddrcs2011,'massa').
+harmonizacao(sr2008,'carne vermelha').
+harmonizacao(sr2008,'massa').
+harmonizacao(mpv2010,'ave').
+harmonizacao(mpv2010,'peixe').
+harmonizacao(mpv2010,'salada').
+harmonizacao(mpv2010,'lanche').
 
