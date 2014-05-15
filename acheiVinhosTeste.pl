@@ -20,7 +20,7 @@
 :-dynamic amadurecimento/3.
 :-dynamic barril/2.
 :-dynamic tempo/2.
-:-dynamic prato/5.
+:-dynamic combinacao/5.
 :-dynamic origem/2.
 :-dynamic harmonizacao/2.
 
@@ -115,21 +115,61 @@ tempo(nao,'0').
 
 %Peixes,frutos do mar, ave, caça, carne vermelha, suína, prato, salada,sobremesa,massa,lanche
 %Pratos
-prato('Carne assada',' ',' ',' ','carne vermelha').
-prato('Canelone queijo',' ',' ',' ','massa').
-prato('Costela no bafo',' ',' ',' ','carne vermelha').
-prato('Linguiça na brasa',' ',' ',' ','suína').
-prato('Pizza de calabresa',' ',' ',' ','massa').
-prato('Chuleta grelhada',' ',' ',' ','carne vermelha').
-prato('Costela ensopada',' ',' ',' ','carne vermelha').
-prato('Massa de funghi secchi',' ',' ',' ','massa').
-prato('Raviole de rabada',' ',' ',' ','massa').
-prato('Sanduiche',' ',' ',' ','lanche').
-prato('Frango grelhado',' ',' ',' ','ave').
-prato('Culinária Japonesa',' ',' ',' ','peixe').
-prato('Isca de Peixe',' ',' ',' ','peixe').
-prato('Saladas',' ',' ',' ','salada').
+combinacao('Carne assada',' ',' ',' ','carne vermelha').
+combinacao('Canelone queijo',' ',' ',' ','massa').
+combinacao('Costela no bafo',' ',' ',' ','carne vermelha').
+combinacao('Linguiça na brasa',' ',' ',' ','suína').
+combinacao('Pizza de calabresa',' ',' ',' ','massa').
+combinacao('Chuleta grelhada',' ',' ',' ','carne vermelha').
+combinacao('Costela ensopada',' ',' ',' ','carne vermelha').
+combinacao('Massa de funghi secchi',' ',' ',' ','massa').
+combinacao('Raviole de rabada',' ',' ',' ','massa').
+combinacao('Sanduiche',' ',' ',' ','lanche').
+combinacao('Frango grelhado',' ',' ',' ','ave').
+combinacao('Culinária Japonesa',' ',' ',' ','peixe').
+combinacao('Isca de Peixe',' ',' ',' ','peixe').
+combinacao('Saladas',' ',' ',' ','salada').
 
+prato('Carne assada','carne vermelha').
+prato('Canelone queijo','massa').
+prato('Costela no bafo','carne vermelha').
+prato('Linguiça na brasa','suína').
+prato('Pizza de calabresa','massa').
+prato('Chuleta grelhada','carne vermelha').
+prato('Costela ensopada','carne vermelha').
+prato('Massa de funghi secchi','massa').
+prato('Raviole de rabada','massa').
+prato('Sanduiche','lanche').
+prato('Frango grelhado','ave').
+prato('Culinária Japonesa','peixe').
+prato('Isca de Peixe','peixe').
+prato('Saladas','salada').
+
+gordura('carne vermelha','gorduroso').
+gordura('suína','gorduroso').
+gordura('salada','light').
+gordura('peixes','magro').
+gordura('frutos do mar','magro').
+gordura('ave','mediano').
+gordura('caça','mediano').
+gordura('sobremesa','mediano').
+gordura('massa','mediano').
+gordura('lanche','magro').
+
+sabores('carne vermelha','com personalidade').
+sabores('suína','com personalidade').
+sabores('salada','leve').
+sabores('peixes','mediana').
+sabores('frutos do mar','muita personalidade').
+sabores('ave','mediana').
+sabores('caça','muita personalidade').
+sabores('sobremesa','leve').
+sabores('massa','muita personalidade').
+sabores('lanche','leve').
+
+
+%amiga(marta,maria).
+%relacao(Nome,Amiga) :- amiga(Nome,Amiga),(No	me=joana;Nome=clara)).
 
 %Relações entre os fatos
 origem(cddrcs2011,'Chile').
@@ -144,4 +184,16 @@ harmonizacao(mpv2010,'ave').
 harmonizacao(mpv2010,'peixe').
 harmonizacao(mpv2010,'salada').
 harmonizacao(mpv2010,'lanche').
+
+
+%Regras
+gorduroso(X):-gordura(X,'gorduroso').
+light(X):-gordura(X,'light').
+magro(X):-gordura(X,'magro').
+mediano(X):-gordura(X,'mediano').
+
+muitapersonalidade(X):-sabores(X,'muita personalidade').
+compersonalidade(X):-sabores(X,'com personalidade').
+mediana(X):-sabores(X,'mediana').
+leve(X):-sabores(X,'leve').
 
