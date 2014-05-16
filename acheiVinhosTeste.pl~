@@ -188,5 +188,3 @@ beberVinhoTinto(Vinho):- nome(Id,Vinho), (combinacao(_,_,_,_,'massa'); prato(_,'
 procuraId(Vinho,Id):-nome(Id,Vinho).
 
 
-
-
