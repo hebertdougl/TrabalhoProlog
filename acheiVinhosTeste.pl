@@ -164,15 +164,42 @@ beberVinhoTinto(Vinho):- nome(Id,Vinho), tipo(Id,'Tinto'), (combinacao(_,_,_,_,'
 
 procuraId(Vinho,Id):-nome(Id,Vinho).
 
-pergunta1 :- write('Primeira: '),read(Param1),nl,pergunta2(Param1).
-pergunta2(Param1) :- write('Segunda: '),read(Param2),nl,pergunta3(Param1,Param2).
-pergunta3(Param1,Param2) :- write('Terceira: '),read(Param3),nl,pergunta4(Param1,Param2,Param3).
-pergunta4(Param1,Param2,Param3) :- write('Quarta: '),read(Param4),nl,pergunta5(Param1,Param2,Param3,Param4).
-pergunta5(Param1,Param2,Param3,Param4) :- write('Quinta: '),read(Param5),nl,pergunta6(Param1,Param2,Param3,Param4,Param5).
-pergunta6(Param1,Param2,Param3,Param4,Param5) :- write('Sexta: '),read(Param6),nl,pergunta7(Param1,Param2,Param3,Param4,Param5,Param6).
-pergunta7(Param1,Param2,Param3,Param4,Param5,Param6) :- write('Sétima: '),read(Param7),nl,pergunta8(Param1,Param2,Param3,Param4,Param5,Param6,Param7).
-pergunta8(Param1,Param2,Param3,Param4,Param5,Param6,Param7) :- write('Oitava: '),read(Param8),nl,pergunta9(Param1,Param2,Param3,Param4,Param5,Param6,Param7,Param8).
-pergunta9(Param1,Param2,Param3,Param4,Param5,Param6,Param7,Param8) :- write('Nona: '),read(Param9),nl.
+pergunta1 :- 
+		write('Qual a ocasião que mais te agrada no momento? '),
+		read(Param1),nl,
+		pergunta2(Param1).
+pergunta2(Param1) :- 
+		write('Qual desses lugares você gostaria de estar agora? '),
+		read(Param2),nl,
+		pergunta3(Param1,Param2).
+pergunta3(Param1,Param2) :- 
+		write('O que mais te chama atenção em um prato? '),
+		read(Param3),nl,
+		pergunta4(Param1,Param2,Param3).
+pergunta4(Param1,Param2,Param3) :- 
+		write('Como você prefere seu prato? '),
+		read(Param4),nl,
+		pergunta5(Param1,Param2,Param3,Param4).
+pergunta5(Param1,Param2,Param3,Param4) :- 
+		write('Qual estilo de prato mais te satisfaz? '),
+		read(Param5),nl,
+		pergunta6(Param1,Param2,Param3,Param4,Param5).
+pergunta6(Param1,Param2,Param3,Param4,Param5) :- 
+		write('Quais dos queijos você mais se identifica? '),
+		read(Param6),nl,
+		pergunta7(Param1,Param2,Param3,Param4,Param5,Param6).
+pergunta7(Param1,Param2,Param3,Param4,Param5,Param6) :- 
+		write('Que cor você prefere? '),
+		read(Param7),nl,
+		pergunta8(Param1,Param2,Param3,Param4,Param5,Param6,Param7).
+pergunta8(Param1,Param2,Param3,Param4,Param5,Param6,Param7) :- 
+		write('Quais dessas frutas mais te agrada? '),
+		read(Param8),nl,
+		pergunta9(Param1,Param2,Param3,Param4,Param5,Param6,Param7,Param8).
+pergunta9(Param1,Param2,Param3,Param4,Param5,Param6,Param7,Param8) :- 
+		write('Que outra bebida alcólica você consumiria? '),
+		read(Param9),nl,
+vinho(Param1,Param2,Param3,Param4,Param5,Param6,Param7,Param8,Param9).
 
 
 pergunta :- write('Qual o id do vinho: '), read(Id), procuraId(Vinho,Id),nl,write('O vinho é: '),write(Vinho).
