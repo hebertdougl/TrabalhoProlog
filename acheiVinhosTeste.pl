@@ -20,7 +20,7 @@
 :-dynamic amadurecimento/3.
 :-dynamic barril/2.
 :-dynamic tempo/2.
-:-dynamic combinacao/5.
+:-dynamic combinacao/3.
 :-dynamic origem/2.
 :-dynamic harmonizacao/2.
 
@@ -44,12 +44,8 @@ localizacao('Viña Concha Y Toro','Chile','Valle Central').
 localizacao('Bodegas Campiña','Espanha','Toro').
 localizacao('Benvenuto De La Serna','Argentina','M1endoza').
 
-regiao('Viña Concha Y Toro','Valle Central').
-pais('Viña Concha Y Toro','Chile').
-regiao('Bodegas Campiña','Toro').
-pais('Bodegas Campiña','Espanha').
-regiao('Benvenuto De La Serna','Mendoza').
-pais('Benvenuto De La Serna','Argentina').
+regiao(Vinicula,Regiao) :- localizacao(Vinicula,_,Regiao).
+pais(Regiao,Pais) :- localizacao(_,Pais,Regiao).
 
 
 %Caracteristica Pais
@@ -73,15 +69,9 @@ caracteristicaVinho('Rubi intenso','Frutas negras','Especiarias','Macio','Equili
 caracteristicaVinho('Rubi','Frutas negras secas','Especiarias','Encorpado','Intenso','Saboroso',sr2008).
 caracteristicaVinho('Amarelo esverdeado','Frutas brancas','Frutas cítricas','Frutado','Equilibrado','Agradável',mpv2010).
 
-visual(cddrcs2011,'Rubi intenso').
-olfativo(cddrcs2011,'Frutas negras','Especiarias').
-gustativo(cddrcs2011,'Macio','Equilibrado','Frutado').
-visual(sr2008,'Rubi').
-olfativo(sr2008,'Frutas negras','Especiarias').
-gustativo(sr2008,'Macio','Equilibrado','Frutado').
-visual(mpv2010,'Amarelo esverdeado').
-olfativo(mpv2010,'Frutas brancas','Frutas cítricas').
-gustativo(mpv2010,'Frutado','Equilibrado','Agradável').
+visual(Id,Visual) :- caracteristicaVinho(Visual,_,_,_,_,_,Id).
+olfativo(Id,Olfativo1,Olfativo2) :- caracteristicaVinho(_,Olfativo1,Olfativo2,_,_,_,Id).
+gustativo(Id,Gustativo1,Gustativo2,Gustativo3) :- caracteristicaVinho(_,_,_,Gustativo1,Gustativo2,Gustativo3,Id).
 
 
 %Amadurecimento
@@ -99,35 +89,22 @@ tempo(nao,'0').
 
 %Peixes,frutos do mar, ave, caça, carne vermelha, suína, prato, salada,sobremesa,massa,lanche
 %Pratos
-combinacao('Carne assada',' ',' ',' ','carne vermelha').
-combinacao('Canelone queijo',' ',' ',' ','massa').
-combinacao('Costela no bafo',' ',' ',' ','carne vermelha').
-combinacao('Linguiça na brasa',' ',' ',' ','suína').
-combinacao('Pizza de calabresa',' ',' ',' ','massa').
-combinacao('Chuleta grelhada',' ',' ',' ','carne vermelha').
-combinacao('Costela ensopada',' ',' ',' ','carne vermelha').
-combinacao('Massa de funghi secchi',' ',' ',' ','massa').
-combinacao('Raviole de rabada',' ',' ',' ','massa').
-combinacao('Sanduiche',' ',' ',' ','lanche').
-combinacao('Frango grelhado',' ',' ',' ','ave').
-combinacao('Culinária Japonesa',' ',' ',' ','peixe').	
-combinacao('Isca de Peixe',' ',' ',' ','peixe').
-combinacao('Saladas',' ',' ',' ','salada').
+combinacao('Carne assada',' ','carne vermelha').
+combinacao('Canelone queijo',' ','massa').
+combinacao('Costela no bafo',' ','carne vermelha').
+combinacao('Linguiça na brasa',' ','suína').
+combinacao('Pizza de calabresa',' ','massa').
+combinacao('Chuleta grelhada',' ','carne vermelha').
+combinacao('Costela ensopada',' ','carne vermelha').
+combinacao('Massa de funghi secchi',' ','massa').
+combinacao('Raviole de rabada',' ','massa').
+combinacao('Sanduiche',' ','lanche').
+combinacao('Frango grelhado',' ','ave').
+combinacao('Culinária Japonesa',' ','peixe').	
+combinacao('Isca de Peixe',' ','peixe').
+combinacao('Saladas',' ','salada').
 
-prato('Carne assada','carne vermelha').
-prato('Canelone queijo','massa').
-prato('Costela no bafo','carne vermelha').
-prato('Linguiça na brasa','suína').
-prato('Pizza de calabresa','massa').
-prato('Chuleta grelhada','carne vermelha').
-prato('Costela ensopada','carne vermelha').
-prato('Massa de funghi secchi','massa').
-prato('Raviole de rabada','massa').
-prato('Sanduiche','lanche').
-prato('Frango grelhado','ave').
-prato('Culinária Japonesa','peixe').
-prato('Isca de Peixe','peixe').
-prato('Saladas','salada').
+prato(Prato,Tipo) :- combinacao(Prato,_,Tipo).
 
 gordura('carne vermelha','gorduroso').
 gordura('suína','gorduroso').
