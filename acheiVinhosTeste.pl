@@ -52,8 +52,8 @@ safra(Id,Safra) :- vinho(Id,_,Safra,_,_,_,_,_,_).
 tipo(Id,Tipo) :- vinho(Id,_,_,Tipo,_,_,_,_,_).
 uva(Id,Uva) :- vinho(Id,_,_,_,Uva,_,_,_,_).
 teoralcoolico(Id,TeorAlcoolico) :- vinho(Id,_,_,_,_,TeorAlcoolico,_,_,_).
-idAmadurecimento:- vinho(Id,_,_,_,_,_,Amadurecimento,_,_).
-temperatura:- vinho(Id,_,_,_,_,_,_,Temperatura,_).
+idAmadurecimento(Id,Amadurecimento) :- vinho(Id,_,_,_,_,_,Amadurecimento,_,_).
+temperatura(Id,Temperatura):- vinho(Id,_,_,_,_,_,_,Temperatura,_).
 nota(Id,Nota):- vinho(Id,_,_,_,_,_,_,_,Nota).
 
 
@@ -225,9 +225,6 @@ combinacao('Risoto',' ','massa').
 combinacao('Marisco',' ','frutos do mar').
 combinacao('Peixe',' ','frutos do mar').
 
-
-prato(Prato,Tipo) :- combinacao(Prato,_,Tipo).
-
 gordura('carne vermelha','gorduroso').
 gordura('suína','gorduroso').
 gordura('salada','light').
@@ -250,9 +247,6 @@ sabores('sobremesa','leve').
 sabores('massa','muita personalidade').
 sabores('lanche','leve').
 
-
-%amiga(marta,maria).
-%relacao(Nome,Amiga) :- amiga(Nome,Amiga),(No	me=joana;Nome=clara)).
 
 %Relações entre os fatos
 origem(cddrcs2011,'Chile').
@@ -343,11 +337,84 @@ mediana(X):-sabores(X,'mediana').
 leve(X):-sabores(X,'leve').
 
 beberVinhoBranco(Vinho):- vinho(Id,Vinho,Safra,_,_,_,_,_,_),Resultado is (2014-Safra),(Resultado=<4),tipo(Id,'Branco').
-beberVinhoBranco(Vinho):- nome(Id,Vinho), (combinacao(_,_,_,_,'peixe'); prato(_,'peixe')).
-beberVinhoTinto(Vinho):- nome(Id,Vinho), (combinacao(_,_,_,_,'massa'); prato(_,'massa')).
+beberVinhoBranco(Vinho):- nome(Id,Vinho), tipo(Id,'Branco'), combinacao(_,'peixe').
+beberVinhoTinto(Vinho):- nome(Id,Vinho), tipo(Id,'Tinto'), combinacao(_,'massa').
 
-procuraId(Vinho,Id):-nome(Id,Vinho).
+momento('Coqueteis', TipoPrato) :- (TipoPrato='lanche'; TipoPrato='frutos do mar').
+momento('HH',TipoPrato) :- (TipoPrato='lanche'; TipoPrato='frutos do mar').
+momento('Piscina',TipoPrato) :- (TipoPrato='lanche'; TipoPrato='carne vermelha'; TipoPrato='ave'; TipoPrato='sobremesa').
+momento('Churrasco',TipoPrato) :- (TipoPrato='lanche'; TipoPrato='carne vermelha'; TipoPrato='ave'; TipoPrato='sobremesa').
+momento('Almoço',TipoPrato) :- gordura(TipoPrato,_).
+momento('Jantar',TipoPrato) :- gordura(TipoPrato,_).
+momento('Festa',TipoPrato) :- (TipoPrato='lanche';TipoPrato='carne vermelha';TipoPrato='ave';TipoPrato='massa').
+momento('Comemoração',TipoPrato) :- (TipoPrato='lanche';TipoPrato='carne vermelha';TipoPrato='ave';TipoPrato='massa').
+momento('Datas especiais',TipoPrato) :- gordura(TipoPrato,_).
 
+lugar('Serra Gaúcha','Brasil').
+lugar('Cordilheira dos Andes','Chile').
+lugar('Mendoza','Argentina').
+lugar('Ibiza','Espanha').
+lugar('Paris','França').
+lugar('Porto','Portugal').
+lugar('Toscana','Itália').
+lugar('Sidney','Austrália').
 
+fruta('Tinto',Fruta) :- (Fruta='Cereja';Fruta='Cassis';Fruta='Ameixa').
+fruta('Branco',Fruta) :- (Fruta='Maçã';Fruta='Abacaxi';Fruta='Melão').
 
+%(Cerveja, Vodka, Uísque, Rum, Drinks)
+%Uísque, vodka > Rum,Drinks > Cerveja
+comparaBebida(TeorAlcoolico,'Drinks') :- teoralcoolico(Id,TeorAlcoolico), (TeorAlcoolico =< 13).
+comparaBebida(TeorAlcoolico,'Cerveja') :- teoralcoolico(Id,TeorAlcoolico),(TeorAlcoolico == 13.5).
+comparaBebida(TeorAlcoolico,TipoBebida) :- (TipoBebida='Vodka';TipoBebida='Uísque'),teoralcoolico(Id,TeorAlcoolico),(TeorAlcoolico > 13.5).
+  
+tipo(Id,Tipo) :- vinho(Id,_,_,Tipo,_,_,_,_,_).
+
+pergunta1 :- 
+		write('Qual a ocasião que mais te agrada no momento? '),
+		read(Param1),nl,
+		pergunta2(Param1).
+pergunta2(Param1) :- 
+		write('Qual desses lugares você gostaria de estar agora? '),
+		read(Param2),nl,
+		pergunta3(Param1,Param2).
+pergunta3(Param1,Param2) :- 
+		write('O que mais te chama atenção em um prato? '),
+		read(Param3),nl,
+		pergunta4(Param1,Param2,Param3).
+pergunta4(Param1,Param2,Param3) :- 
+		write('Como você prefere seu prato? '),
+		read(Param4),nl,
+		pergunta5(Param1,Param2,Param3,Param4).
+pergunta5(Param1,Param2,Param3,Param4) :- 
+		write('Qual estilo de prato mais te satisfaz? '),
+		read(Param5),nl,
+		pergunta6(Param1,Param2,Param3,Param4,Param5).
+pergunta6(Param1,Param2,Param3,Param4,Param5) :- 
+		write('Quais dos queijos você mais se identifica? '),
+		read(Param6),nl,
+		pergunta7(Param1,Param2,Param3,Param4,Param5,Param6).
+pergunta7(Param1,Param2,Param3,Param4,Param5,Param6) :- 
+		write('Que cor você prefere? '),
+		read(Param7),nl,
+		pergunta8(Param1,Param2,Param3,Param4,Param5,Param6,Param7).
+pergunta8(Param1,Param2,Param3,Param4,Param5,Param6,Param7) :- 
+		write('Quais dessas frutas mais te agrada? '),
+		read(Param8),nl,
+		pergunta9(Param1,Param2,Param3,Param4,Param5,Param6,Param7,Param8).
+pergunta9(Param1,Param2,Param3,Param4,Param5,Param6,Param7,Param8) :- 
+		write('Que outra bebida alcólica você consumiria? '),
+		read(Param9).
+
+momento(Param1,TipoPrato).
+vinho(Param1,Param2,Param3,Param4,Param5,Param6,Param7,Param8,Param9).
+
+ocasiao('Cerveja','Balada').
+ocasiao('Vinho','Jantar').
+
+sabendo(Nome):- (X='Balada'; X='Jantar'; X='Natal'; X='Comemorações'),ocasiao(Nome,X).
+
+pergunta :- write('Qual o id do vinho: '), read(Id), procuraId(Vinho,Id),nl,write('O vinho é: '),write(Vinho).
+pergunta22 :- write('Qual o tipo do vinho: '), read(Tipo),vinho(Id,_,_,Tipo,_,_,_,_,_),nl,write('O id do vinho é: '),nl,write(Id),funcaoTeste(Id).
+funcaoTeste(Id) :- nl,nome(Id,Nome),write('O nome é: '),write(Nome).
 
