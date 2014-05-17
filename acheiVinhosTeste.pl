@@ -164,66 +164,66 @@ tempo(sim,'0').
 
 %Peixes,frutos do mar, ave, caça, carne vermelha, suína, prato, salada,sobremesa,massa,lanche
 %Pratos
-combinacao('Carne assada',' ','carne vermelha').
-combinacao('Canelone queijo',' ','massa').
-combinacao('Costela no bafo',' ','carne vermelha').
-combinacao('Linguiça na brasa',' ','suína').
-combinacao('Pizza de calabresa',' ','massa').
-combinacao('Chuleta grelhada',' ','carne vermelha').
-combinacao('Costela ensopada',' ','carne vermelha').
-combinacao('Massa de funghi secchi',' ','massa').
-combinacao('Raviole de rabada',' ','massa').
-combinacao('Sanduiche',' ','lanche').
-combinacao('Frango grelhado',' ','ave').
-combinacao('Culinária Japonesa',' ','peixe').	
-combinacao('Isca de Peixe',' ','peixe').
-combinacao('Saladas',' ','salada').
-combinacao('Parmegiana',' ','ave').
-combinacao('Salada',' ','salada').
-combinacao('Pernil',' ','suína').
-combinacao('Peito de frango',' ','ave').
-combinacao('Abobrinha recheada',' ','salada').
-combinacao('Lombo suíno',' ','suína').
-combinacao('Galinhada',' ','ave').
-combinacao('Legumes assados',' ','salada').
-combinacao('Rosbife',' ','carne vermelha').
-combinacao('Paleta suína',' ','suína').
-combinacao('Espaguete',' ','massa').
-combinacao('Alcatra assada',' ','carne vermelha').
-combinacao('Queijos maduros',' ','lanche').
-combinacao('Atum gralhado',' ','peixe').
-combinacao('Costelinha suína ',' ','suína').
-combinacao('Maminha na brasa ',' ','carne vermelha').
-combinacao('Lasanha gratinada ',' ','massa').
-combinacao('Filé mignon',' ','carne vermelha').
-combinacao('Pernil assado',' ','suína').
-combinacao('Pizza de presunto',' ','massa').
-combinacao('Tomate recheado',' ','salada').
-combinacao('Maminha churrasqueada',' ','carne vermelha').
-combinacao('Lombo com bacon',' ','carne vermelha').
-combinacao('Paella',' ','fruntos do mar').
-combinacao('Salmao assado',' ','fruntos do mar').
-combinacao('Bobó de camarão',' ','fruntos do mar').
-combinacao('Salada grega',' ','salada').
-combinacao('Risoto',' ','massa').
-combinacao('Costelinha de porco',' ','suína').
-combinacao('Queijos',' ','salada').
-combinacao('Peixe assado',' ','frutos do mar').
-combinacao('Saladas leves',' ','salada').
-combinacao('Torta de palmito',' ','massa').
-combinacao('Panqueca de carne',' ','massa').
-combinacao('Batata',' ','salada').
-combinacao('Bacon',' ','carne vermelha').
-combinacao('Aves assadas',' ','ave').
-combinacao('Bacon',' ','carne vermelha').
-combinacao('Frutos do mar',' ','frutos do mar').
-combinacao('Saladas',' ','salada').
-combinacao('Frutos do mar',' ','frutos do mar').
-combinacao('Queijos leves',' ','lanche').
-combinacao('Talharim',' ','massa').
-combinacao('Risoto',' ','massa').
-combinacao('Marisco',' ','frutos do mar').
-combinacao('Peixe',' ','frutos do mar').
+combinacao('Carne assada','carne vermelha').
+combinacao('Canelone queijo','massa').
+combinacao('Costela no bafo','carne vermelha').
+combinacao('Linguiça na brasa','suína').
+combinacao('Pizza de calabresa','massa').
+combinacao('Chuleta grelhada','carne vermelha').
+combinacao('Costela ensopada','carne vermelha').
+combinacao('Massa de funghi secchi','massa').
+combinacao('Raviole de rabada','massa').
+combinacao('Sanduiche','lanche').
+combinacao('Frango grelhado','ave').
+combinacao('Culinária Japonesa','peixe').	
+combinacao('Isca de Peixe','peixe').
+combinacao('Saladas','salada').
+combinacao('Parmegiana','ave').
+combinacao('Salada','salada').
+combinacao('Pernil','suína').
+combinacao('Peito de frango','ave').
+combinacao('Abobrinha recheada','salada').
+combinacao('Lombo suíno','suína').
+combinacao('Galinhada','ave').
+combinacao('Legumes assados','salada').
+combinacao('Rosbife','carne vermelha').
+combinacao('Paleta suína','suína').
+combinacao('Espaguete','massa').
+combinacao('Alcatra assada','carne vermelha').
+combinacao('Queijos maduros','lanche').
+combinacao('Atum gralhado','peixe').
+combinacao('Costelinha suína ','suína').
+combinacao('Maminha na brasa ','carne vermelha').
+combinacao('Lasanha gratinada ','massa').
+combinacao('Filé mignon','carne vermelha').
+combinacao('Pernil assado','suína').
+combinacao('Pizza de presunto','massa').
+combinacao('Tomate recheado','salada').
+combinacao('Maminha churrasqueada','carne vermelha').
+combinacao('Lombo com bacon','carne vermelha').
+combinacao('Paella','fruntos do mar').
+combinacao('Salmao assado','fruntos do mar').
+combinacao('Bobó de camarão','fruntos do mar').
+combinacao('Salada grega','salada').
+combinacao('Risoto','massa').
+combinacao('Costelinha de porco','suína').
+combinacao('Queijos','salada').
+combinacao('Peixe assado','frutos do mar').
+combinacao('Saladas leves','salada').
+combinacao('Torta de palmito','massa').
+combinacao('Panqueca de carne','massa').
+combinacao('Batata','salada').
+combinacao('Bacon','carne vermelha').
+combinacao('Aves assadas','ave').
+combinacao('Bacon','carne vermelha').
+combinacao('Frutos do mar','frutos do mar').
+combinacao('Saladas','salada').
+combinacao('Frutos do mar','frutos do mar').
+combinacao('Queijos leves','lanche').
+combinacao('Talharim','massa').
+combinacao('Risoto','massa').
+combinacao('Marisco','frutos do mar').
+combinacao('Peixe','frutos do mar').
 
 gordura('carne vermelha','gorduroso').
 gordura('suína','gorduroso').
