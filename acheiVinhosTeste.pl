@@ -182,11 +182,25 @@ mediana(X):-sabores(X,'mediana').
 leve(X):-sabores(X,'leve').
 
 beberVinhoBranco(Vinho):- vinho(Id,Vinho,Safra,_,_,_,_,_,_),Resultado is (2014-Safra),(Resultado=<4),tipo(Id,'Branco').
-beberVinhoBranco(Vinho):- nome(Id,Vinho), (combinacao(_,_,_,_,'peixe'); prato(_,'peixe')).
-beberVinhoTinto(Vinho):- nome(Id,Vinho), (combinacao(_,_,_,_,'massa'); prato(_,'massa')).
+beberVinhoBranco(Vinho):- nome(Id,Vinho), tipo(Id,'Tinto'), (combinacao(_,_,_,_,'peixe'); prato(_,'peixe')).
+beberVinhoTinto(Vinho):- nome(Id,Vinho), tipo(Id,'Tinto'), (combinacao(_,_,_,_,'massa'); prato(_,'massa')).
 
 procuraId(Vinho,Id):-nome(Id,Vinho).
 
+pergunta1 :- write('Primeira: '),read(Param1),nl,pergunta2(Param1).
+pergunta2(Param1) :- write('Segunda: '),read(Param2),nl,pergunta3(Param1,Param2).
+pergunta3(Param1,Param2) :- write('Terceira: '),read(Param3),nl,pergunta4(Param1,Param2,Param3).
+pergunta4(Param1,Param2,Param3) :- write('Quarta: '),read(Param4),nl,pergunta5(Param1,Param2,Param3,Param4).
+pergunta5(Param1,Param2,Param3,Param4) :- write('Quinta: '),read(Param5),nl,pergunta6(Param1,Param2,Param3,Param4,Param5).
+pergunta6(Param1,Param2,Param3,Param4,Param5) :- write('Sexta: '),read(Param6),nl,pergunta7(Param1,Param2,Param3,Param4,Param5,Param6).
+pergunta7(Param1,Param2,Param3,Param4,Param5,Param6) :- write('Sétima: '),read(Param7),nl,pergunta8(Param1,Param2,Param3,Param4,Param5,Param6,Param7).
+pergunta8(Param1,Param2,Param3,Param4,Param5,Param6,Param7) :- write('Oitava: '),read(Param8),nl,pergunta9(Param1,Param2,Param3,Param4,Param5,Param6,Param7,Param8).
+pergunta9(Param1,Param2,Param3,Param4,Param5,Param6,Param7,Param8) :- write('Nona: '),read(Param9),nl.
 
 
+pergunta :- write('Qual o id do vinho: '), read(Id), procuraId(Vinho,Id),nl,write('O vinho é: '),write(Vinho).
+pergunta22 :- write('Qual o tipo do vinho: '), read(Tipo),vinho(Id,_,_,Tipo,_,_,_,_,_),nl,write('O id do vinho é: '),nl,write(Id),funcaoTeste(Id).
+funcaoTeste(Id) :- nl,nome(Id,Nome),write('O nome é: '),write(Nome).
+
+criaArquivo :- fcreate(arq,'/TrabTrabalhoProlog/saida.pl',2).
 
