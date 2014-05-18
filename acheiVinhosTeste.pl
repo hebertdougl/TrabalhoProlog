@@ -162,7 +162,7 @@ tempo(nao,'0').
 barril(sim,carvalho).
 tempo(sim,'0').
 
-%Peixes,frutos do mar, ave, caça, carne vermelha, suína, prato, salada,sobremesa,massa,lanche
+%Peixes,frutos do mar, ave, caça, carne vermelha, suína, prato, salada,sobremesa,massa,	
 %Pratos
 combinacao('Carne assada','carne vermelha').
 combinacao('Canelone queijo','massa').
@@ -367,12 +367,21 @@ fruta('Branco',Fruta) :- (Fruta='Maçã';Fruta='Abacaxi';Fruta='Melão').
 comparaBebida(TeorAlcoolico,'Drinks') :- teoralcoolico(Id,TeorAlcoolico), (TeorAlcoolico =< 13).
 comparaBebida(TeorAlcoolico,'Cerveja') :- teoralcoolico(Id,TeorAlcoolico),(TeorAlcoolico == 13.5).
 comparaBebida(TeorAlcoolico,TipoBebida) :- (TipoBebida='Vodka';TipoBebida='Uísque'),teoralcoolico(Id,TeorAlcoolico),(TeorAlcoolico > 13.5).
-  
-tipo(Id,Tipo) :- vinho(Id,_,_,Tipo,_,_,_,_,_).
+
+queijo(Id,Amadurecimento) :- (Amadurecimento = carvalho8m; Amadurecimento = carvalho9m), (idAmadurecimento(Id,carvalho8m);idAmadurecimento(Id,carvalho9m)).
+queijo(Id,Amadurecimento) :- (Amadurecimento = carvalho12m; Amadurecimento = carvalho10m), (idAmadurecimento(Id,carvalho10m);idAmadurecimento(Id,carvalho12m)).
+queijo(Id,Amadurecimento) :- idAmadurecimento(Id,Amadurecimento)).
+
+
 
 pergunta1 :- 
-		write('Qual a ocasião que mais te agrada no momento? '),
-		read(Param1),nl,
+	write('Qual a ocasião que mais te agrada no momento? '),write('=== MENU ==='), nl,
+ 	write('1. Option A'), nl,
+ 	write('2. Option B'), nl,
+ 	write('0. Exit'), nl,
+ 	read(X),
+ 	resposta1(X,Param1),nl,
+ 	write(Param1),nl,
 		pergunta2(Param1).
 pergunta2(Param1) :- 
 		write('Qual desses lugares você gostaria de estar agora? '),
@@ -406,8 +415,21 @@ pergunta9(Param1,Param2,Param3,Param4,Param5,Param6,Param7,Param8) :-
 		write('Que outra bebida alcólica você consumiria? '),
 		read(Param9).
 
-momento(Param1,TipoPrato).
-vinho(Param1,Param2,Param3,Param4,Param5,Param6,Param7,Param8,Param9).
+retornaVinho1(Id,Ocasiao) :- momento(Ocasiao,TipoPrato), harmonizacao(Id,TipoPrato).
+retornaVinho2(Id,Lugar) :- lugar(Lugar,Pais),origem(Id,Pais).
+retornaVinho3(Id,TipoPrato) :- harmonizacao(Id,TipoPrato).
+retornaVinho4(Id,Tempero) :- sabores(TipoPrato,Tempero), harmonizacao(Id,TipoPrato).
+retornaVinho5(Id,Estilo) :- gordura(TipoPrato,Estilo), harmonizacao(Id,TipoPrato).
+retornaVinho6(Id,Queijo) :- queijo(Id,Queijo).
+retornaVinho7(Id,Cor) :- visual(Id,Cor).
+retornaVinho8(Id,Fruta) :- fruta(TipoVinho,Fruta),write(TipoVinho),nl,tipo(Id,TipoVinho).
+retornaVinho9(Id,TipoBebida) :- comparaBebida(TeorAlcoolico,TipoBebida), teoralcoolico(Id,TeorAlcoolico).
+
+resposta1(0,Param1):- !.
+resposta1(1,Param1):- Param1='Coqueteis',write('You choose the option A...'), nl, !.
+resposta1(2,Param1):- Param1='HH',write('You choose the option B...'), nl, !.
+resposta1(_,Param1):- write('It is not an acceptable option'), nl, !.
+
 
 ocasiao('Cerveja','Balada').
 ocasiao('Vinho','Jantar').
