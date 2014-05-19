@@ -374,45 +374,130 @@ queijo(Id,Amadurecimento) :- idAmadurecimento(Id,Amadurecimento).
 
 
 pergunta1 :- 
-	write('Qual a ocasião que mais te agrada no momento? '),write('=== MENU ==='), nl,
- 	write('1. Option A'), nl,
- 	write('2. Option B'), nl,
- 	write('0. Exit'), nl,
+	write('Qual a ocasião que mais te agrada no momento? '),nl,
+ 	write('1. Coqueteis'), nl,
+	write('2. HH'), nl,
+	write('3. Piscina'), nl,
+	write('4. Churrasco'), nl,
+	write('5. Almoço'), nl,
+	write('6. Jantar'), nl,
+	write('7. Festa'), nl,
+	write('8. Comemoração'), nl,
+	write('9. Datas especiais'), nl,
+	write('0. Sair'), nl,
  	read(X),
  	resposta1(X,Param1),nl,
  	write(Param1),nl,
-		pergunta2(Param1).
-pergunta2(Param1) :- 
-		write('Qual desses lugares você gostaria de estar agora? '),
-		read(Param2),nl,
-		pergunta3(Param1,Param2).
-pergunta3(Param1,Param2) :- 
-		write('O que mais te chama atenção em um prato? '),
-		read(Param3),nl,
-		pergunta4(Param1,Param2,Param3).
-pergunta4(Param1,Param2,Param3) :- 
-		write('Como você prefere seu prato? '),
-		read(Param4),nl,
-		pergunta5(Param1,Param2,Param3,Param4).
-pergunta5(Param1,Param2,Param3,Param4) :- 
-		write('Qual estilo de prato mais te satisfaz? '),
-		read(Param5),nl,
-		pergunta6(Param1,Param2,Param3,Param4,Param5).
-pergunta6(Param1,Param2,Param3,Param4,Param5) :- 
-		write('Quais dos queijos você mais se identifica? '),
-		read(Param6),nl,
-		pergunta7(Param1,Param2,Param3,Param4,Param5,Param6).
-pergunta7(Param1,Param2,Param3,Param4,Param5,Param6) :- 
-		write('Que cor você prefere? '),
-		read(Param7),nl,
-		pergunta8(Param1,Param2,Param3,Param4,Param5,Param6,Param7).
-pergunta8(Param1,Param2,Param3,Param4,Param5,Param6,Param7) :- 
-		write('Quais dessas frutas mais te agrada? '),
-		read(Param8),nl,
-		pergunta9(Param1,Param2,Param3,Param4,Param5,Param6,Param7,Param8).
-pergunta9(Param1,Param2,Param3,Param4,Param5,Param6,Param7,Param8) :- 
-		write('Que outra bebida alcólica você consumiria? '),
-		read(Param9).
+		pergunta2.
+
+pergunta2 :- 
+	write('Qual desses lugares você gostaria de estar agora? '),nl,
+ 	write('1. Serra Gaúcha'), nl,
+	write('2. Cordilheira dos Andes'), nl,
+	write('3. Mendoza'), nl,
+	write('4. Ibiza'), nl,
+	write('5. Paris'), nl,
+	write('6. Porto'), nl,
+	write('7. Toscana'), nl,
+	write('8. Sidney'), nl,
+	write('0. Sair'), nl,
+ 	read(X),
+ 	resposta2(X,Param2),nl,
+ 	write(Param2),nl,
+		pergunta3.
+
+pergunta3 :- 
+	write('O que mais te chama atenção em um prato? '),nl,
+ 	write('1. carne vermelha'), nl,
+	write('2. suína'), nl,
+	write('3. salada'), nl,
+	write('4. peixes'), nl,
+	write('5. frutos do mar'), nl,
+	write('6. massa'), nl,
+	write('7. lanche'), nl,
+	write('8. ave'), nl,
+	write('0. Sair'), nl,
+ 	read(X),
+ 	resposta3(X,Param3),nl,
+ 	write(Param3),nl,
+		pergunta4.
+
+pergunta4 :- 
+	write('Como você prefere seu prato? '),nl,
+	write('1. leve'), nl,
+	write('2. mediano'), nl,
+	write('3. com personalidade'), nl,
+	write('4. muita personalidade'), nl,
+	write('0. Sair'), nl,
+ 	read(X),
+ 	resposta4(X,Param4),nl,
+ 	write(Param4),nl,
+	pergunta5.
+
+pergunta5 :- 
+	write('Qual estilo de prato mais te satisfaz? '),nl,
+ 	write('1. light'), nl,
+	write('2. magro'), nl,
+	write('3. mediano'), nl,
+	write('4. gorduroso'), nl,
+	write('0. Sair'), nl,
+ 	read(X),
+ 	resposta5(X,Param5),nl,
+ 	write(Param5),nl,
+	pergunta6.
+
+pergunta6 :- 
+	write('Quais dos queijos você mais se identifica? '),nl,
+ 	write('1. Queijo Branco'), nl,
+	write('2. Queijo Minas'), nl,
+	write('3. Queijo Prato'), nl,
+	write('4. Queijo Provolone'), nl,
+	write('5. Queijo Gorgonzola'), nl,
+	write('6. Queijo Roquefort'), nl,
+	write('0. Sair'), nl,
+ 	read(X),
+ 	resposta6(X,Param6),nl,
+ 	write(Param6),nl,
+	pergunta7.
+
+pergunta7 :- 
+	write('Que cor você prefere? '),nl,
+ 	write('1. Rubi'), nl,
+	write('2. Amarelo'), nl,
+	write('3. Palha'), nl,
+	write('4. Vermelho'), nl,
+	write('5. Violeta'), nl,
+	write('6. Cereja'), nl,
+	write('0. Sair'), nl,
+ 	read(X),
+ 	resposta7(X,Param7),nl,
+ 	write(Param7),nl,
+	pergunta8.
+
+pergunta8 :- 
+	write('Quais dessas frutas mais te agrada? '),nl,
+ 	write('1. Cereja'), nl,
+	write('2. Ameixa'), nl,
+	write('3. Cassis'), nl,
+	write('4. Maçã'), nl,
+	write('5. Abacaxi'), nl,
+	write('0. Sair'), nl, 	
+	read(X),
+ 	resposta8(X,Param8),nl,
+ 	write(Param8),nl,
+	pergunta9.
+
+pergunta9 :- 
+	write('Que outra bebida alcólica você consumiria? '),nl,
+ 	write('1. Cerveja'), nl,
+	write('2. Vodka'), nl,
+	write('3. Uísque'), nl,
+	write('4. Rum'), nl,
+	write('5. Drinks'), nl,
+ 	write('0. Sair'), nl,
+ 	read(X),
+ 	resposta9(X,Param9),nl,
+ 	write(Param9),nl.
 
 retornaVinho1(Id,Ocasiao) :- momento(Ocasiao,TipoPrato), harmonizacao(Id,TipoPrato).
 retornaVinho2(Id,Lugar) :- lugar(Lugar,Pais),origem(Id,Pais).
@@ -427,13 +512,13 @@ retornaVinho9(Id,TipoBebida) :- comparaBebida(TeorAlcoolico,TipoBebida), teoralc
 resposta1(0,Param1):- !.
 resposta1(1,Param1):- Param1='Coqueteis', nl, !.
 resposta1(2,Param1):- Param1='HH', nl, !.
-resposta1(2,Param1):- Param1='Piscina', nl, !.
-resposta1(2,Param1):- Param1='Churrasco', nl, !.
-resposta1(2,Param1):- Param1='Almoço', nl, !.
-resposta1(2,Param1):- Param1='Jantar', nl, !.
-resposta1(2,Param1):- Param1='Festa', nl, !.
-resposta1(2,Param1):- Param1='Comemoração', nl, !.
-resposta1(2,Param1):- Param1='Datas especiais', nl, !.
+resposta1(3,Param1):- Param1='Piscina', nl, !.
+resposta1(4,Param1):- Param1='Churrasco', nl, !.
+resposta1(5,Param1):- Param1='Almoço', nl, !.
+resposta1(6,Param1):- Param1='Jantar', nl, !.
+resposta1(7,Param1):- Param1='Festa', nl, !.
+resposta1(8,Param1):- Param1='Comemoração', nl, !.
+resposta1(9,Param1):- Param1='Datas especiais', nl, !.
 resposta1(_,Param1):- write('Essa opção não existe :('), nl, !.
 
 resposta2(0,Param2):- !.
@@ -455,6 +540,7 @@ resposta3(4,Param3):- Param3='peixes', nl, !.
 resposta3(5,Param3):- Param3='frutos do mar', nl, !.
 resposta3(6,Param3):- Param3='massa', nl, !.
 resposta3(7,Param3):- Param3='lanche', nl, !.
+resposta3(8,Param3):- Param3='ave', nl, !.
 resposta3(_,Param3):- write('Essa opção não existe :('), nl, !.
 
 resposta4(0,Param4):- !.
@@ -472,11 +558,12 @@ resposta5(4,Param5):- Param5='gorduroso', nl, !.
 resposta5(_,Param5):- write('Essa opção não existe :('), nl, !.
 
 resposta6(0,Param6):- !.
-resposta6(1,Param6):- Param6=carvalho6m, nl, !.
-resposta6(2,Param6):- Param6=carvalho8m, nl, !.
-resposta6(3,Param6):- Param6=carvalho10m, nl, !.
-resposta6(4,Param6):- Param6=nao, nl, !.
-resposta6(5,Param6):- Param6=sim, nl, !.
+resposta6(1,Param6):- Param6=nao, nl, !.
+resposta6(2,Param6):- Param6=sim, nl, !.
+resposta6(3,Param6):- Param6=carvalho6m, nl, !.
+resposta6(4,Param6):- Param6=carvalho8m, nl, !.
+resposta6(5,Param6):- Param6=carvalho10m, nl, !.
+resposta6(6,Param6):- Param6=carvalho12m, nl, !.
 resposta6(_,Param6):- write('Essa opção não existe :('), nl, !.
 
 resposta7(0,Param7):- !.
