@@ -434,7 +434,7 @@ resposta1(2,Param1):- Param1='Jantar', nl, !.
 resposta1(2,Param1):- Param1='Festa', nl, !.
 resposta1(2,Param1):- Param1='Comemoração', nl, !.
 resposta1(2,Param1):- Param1='Datas especiais', nl, !.
-resposta1(_,Param1):- write('It is not an acceptable option'), nl, !.
+resposta1(_,Param1):- write('Essa opção não existe :('), nl, !.
 
 resposta2(0,Param2):- !.
 resposta2(1,Param2):- Param2='Serra Gaúcha', nl, !.
@@ -445,7 +445,7 @@ resposta2(5,Param2):- Param2='Paris', nl, !.
 resposta2(6,Param2):- Param2='Porto', nl, !.
 resposta2(7,Param2):- Param2='Toscana', nl, !.
 resposta2(8,Param2):- Param2='Sidney', nl, !.
-resposta2(_,Param2):- write('It is not an acceptable option'), nl, !.
+resposta2(_,Param2):- write('Essa opção não existe :('), nl, !.
 
 resposta3(0,Param3):- !.
 resposta3(1,Param3):- Param3='carne vermelha', nl, !.
@@ -455,18 +455,21 @@ resposta3(4,Param3):- Param3='peixes', nl, !.
 resposta3(5,Param3):- Param3='frutos do mar', nl, !.
 resposta3(6,Param3):- Param3='massa', nl, !.
 resposta3(7,Param3):- Param3='lanche', nl, !.
+resposta3(_,Param3):- write('Essa opção não existe :('), nl, !.
 
 resposta4(0,Param4):- !.
 resposta4(1,Param4):- Param4='leve', nl, !.
 resposta4(2,Param4):- Param4='mediana', nl, !.
 resposta4(3,Param4):- Param4='com personalidade', nl, !.
 resposta4(4,Param4):- Param4='muita personalidade', nl, !.
+resposta4(_,Param4):- write('Essa opção não existe :('), nl, !.
 
 resposta5(0,Param5):- !.
 resposta5(1,Param5):- Param5='light', nl, !.
 resposta5(2,Param5):- Param5='magro', nl, !.
 resposta5(3,Param5):- Param5='mediano', nl, !.
 resposta5(4,Param5):- Param5='gorduroso', nl, !.
+resposta5(_,Param5):- write('Essa opção não existe :('), nl, !.
 
 resposta6(0,Param6):- !.
 resposta6(1,Param6):- Param6=carvalho6m, nl, !.
@@ -474,6 +477,7 @@ resposta6(2,Param6):- Param6=carvalho8m, nl, !.
 resposta6(3,Param6):- Param6=carvalho10m, nl, !.
 resposta6(4,Param6):- Param6=nao, nl, !.
 resposta6(5,Param6):- Param6=sim, nl, !.
+resposta6(_,Param6):- write('Essa opção não existe :('), nl, !.
 
 resposta7(0,Param7):- !.
 resposta7(1,Param7):- Param7='Rubi', nl, !.
@@ -482,6 +486,7 @@ resposta7(3,Param7):- Param7='Palha', nl, !.
 resposta7(4,Param7):- Param7='Vermelho', nl, !.
 resposta7(5,Param7):- Param7='Violeta', nl, !.
 resposta7(6,Param7):- Param7='Cereja', nl, !.
+resposta7(_,Param7):- write('Essa opção não existe :('), nl, !.
 
 resposta8(0,Param8):- !.
 resposta8(1,Param8):- Param8='Cereja', nl, !.
@@ -489,13 +494,15 @@ resposta8(2,Param8):- Param8='Ameixa', nl, !.
 resposta8(3,Param8):- Param8='Cassis', nl, !.
 resposta8(4,Param8):- Param8='Maçã', nl, !.
 resposta8(5,Param8):- Param8='Abacaxi', nl, !.
+resposta8(_,Param8):- write('Essa opção não existe :('), nl, !.
 
-resposta8(0,Param9):- !.
-resposta8(1,Param9):- Param9='Cerveja', nl, !.
-resposta8(2,Param9):- Param9='Vodka', nl, !.
-resposta8(3,Param9):- Param9='Uísque', nl, !.
-resposta8(4,Param9):- Param9='Rum', nl, !.
-resposta8(5,Param9):- Param9='Drinks', nl, !.
+resposta9(0,Param9):- !.
+resposta9(1,Param9):- Param9='Cerveja', nl, !.
+resposta9(2,Param9):- Param9='Vodka', nl, !.
+resposta9(3,Param9):- Param9='Uísque', nl, !.
+resposta9(4,Param9):- Param9='Rum', nl, !.
+resposta9(5,Param9):- Param9='Drinks', nl, !.
+resposta9(_,Param9):- write('Essa opção não existe :('), nl, !.
 
 ocasiao('Cerveja','Balada').
 ocasiao('Vinho','Jantar').
