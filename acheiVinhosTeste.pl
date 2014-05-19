@@ -1,28 +1,3 @@
-:-dynamic vinho/9.
-:-dynamic nome/2.
-:-dynamic safra/2.
-:-dynamic tipo/2.
-:-dynamic uva/2.
-:-dynamic teoralcolico/2.
-:-dynamic idamadurecimento/2.
-:-dynamic nota/2.
-:-dynamic localizacao/3.
-:-dynamic regiao/2.
-:-dynamic pais/2.
-:-dynamic caracteristicaPais/5.
-:-dynamic sigla/2.
-:-dynamic adjetivo/3.
-:-dynamic clima/2.
-:-dynamic caracteristicaVinho/7.
-:-dynamic visual/2.
-:-dynamic olfativo/3.
-:-dynamic gustativo/4.
-:-dynamic amadurecimento/3.
-:-dynamic barril/2.
-:-dynamic tempo/2.
-:-dynamic combinacao/3.
-:-dynamic origem/2.
-:-dynamic harmonizacao/2.
 :-dynamic pontuacao/2.
 
 %Vinho
@@ -554,7 +529,11 @@ pergunta9 :-
  	write(Param9),nl,
 	retornaVinho9(Id,Param9),
 	esquece1(pontuacao(Id,Pontuacao)),
-	atualiza(pontuacao(Id,Pont)),nl.
+	Pont is Pontuacao+10,
+	atualiza(pontuacao(Id,Pont)),nl,
+		pontuacaoMaxima(0,Maior),
+		write(40),
+		defineVinho(40),!.
 
 
 retornaVinho1(Id,Ocasiao) :- momento(Ocasiao,TipoPrato), harmonizacao(Id,TipoPrato).
@@ -566,6 +545,13 @@ retornaVinho6(Id,Queijo) :- queijo(Id,Queijo).
 retornaVinho7(Id,Cor) :- visual(Id,Cor).
 retornaVinho8(Id,Fruta) :- fruta(TipoVinho,Fruta),write(TipoVinho),nl,tipo(Id,TipoVinho).
 retornaVinho9(Id,TipoBebida) :- comparaBebida(TeorAlcoolico,TipoBebida), teoralcoolico(Id,TeorAlcoolico).
+
+pontuacaoMaxima(Valor,Maior) :- pontuacao(Id,Pontos), maximo(Valor,Pontos,Maior),write(Maior),Valor=Maior,!.
+defineVinho(Maior) :- pontuacao(Id,Maior),nome(Id,Nome),write(Nome).
+
+% máximo de 2 números é retornado no 3o argumento 
+maximo(X,Y,Resultado) :- X>Y, Resultado = X.
+maximo(X,Y,Resultado) :- Y>X, Resultado = Y.
 
 resposta1(0,Param1):- !.
 resposta1(1,Param1):- Param1='Coqueteis', nl, !.
@@ -659,7 +645,7 @@ pergunta22 :- write('Qual o tipo do vinho: '), read(Tipo),vinho(Id,_,_,Tipo,_,_,
 funcaoTeste(Id) :- nl,nome(Id,Nome),write('O nome é: '),write(Nome).
 
 esquece(X):-
-	esquece1(X), fail.
+	esquece(X), fail.
 esquece(X).
 
 esquece1(X):-
