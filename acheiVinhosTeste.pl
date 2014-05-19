@@ -112,28 +112,28 @@ clima('França', frio).
 adjetivo('Portugal', , ).
 clima('Portugal', frio).
 
-%Caracteristica Vinho
-caracteristicaVinho('Rubi intenso','Frutas negras','Especiarias','Macio','Equilibrado','Frutado',cddrcs2011).
+%Caracteristica Vinho Rubi,Amarelo,Palha, Vermelho Violeta, Cereja
+caracteristicaVinho('Rubi','Frutas negras','Especiarias','Macio','Equilibrado','Frutado',cddrcs2011).
 caracteristicaVinho('Rubi','Frutas negras secas','Especiarias','Encorpado','Intenso','Saboroso',sr2008).
-caracteristicaVinho('Amarelo esverdeado','Frutas brancas','Frutas cítricas','Frutado','Equilibrado','Agradável',mpv2010).
+caracteristicaVinho('Amarelo','Frutas brancas','Frutas cítricas','Frutado','Equilibrado','Agradável',mpv2010).
 caracteristicaVinho('Rubi','Frutas vermelhas','Folhas secas','Frutado','Equilibrado','Agradável',mps2009).
-caracteristicaVinho('Palha claro','Frutas tropicais','herbáceas','Corpo médio','Equilibrado','Agradável',asb2011).
-caracteristicaVinho('Vermelho atijolado','Frutas vermelhas','violetas','Frutado','Taninos macios','Delicado',fdldn2011).
-caracteristicaVinho('Rubi intenso','Frutas vermelhas','cerejas ','Frutado','Equilibrado','bom corpo',fdddd2011).
-caracteristicaVinho('Vermelho profundo','Amora','pimenta preta','Macio','Denso','Tostado',hnhs2011).
-caracteristicaVinho('Violeta intenso','Frutas negras','baunilha','Frutado','Aporte de madeira','Chocolate',sd2008).
-caracteristicaVinho('Cereja escuro','Frutas negras','baunilha','Frutado','Elegante','Leve',bprcpn2012).
-caracteristicaVinho('Rubi intenso','Frutas vermelhas','Framboesa','Frutado','Estruturado','Equilibrado',tm2012).
+caracteristicaVinho('Palha','Frutas tropicais','herbáceas','Corpo médio','Equilibrado','Agradável',asb2011).
+caracteristicaVinho('Vermelho','Frutas vermelhas','violetas','Frutado','Taninos macios','Delicado',fdldn2011).
+caracteristicaVinho('Rubi','Frutas vermelhas','cerejas ','Frutado','Equilibrado','bom corpo',fdddd2011).
+caracteristicaVinho('Vermelho','Amora','pimenta preta','Macio','Denso','Tostado',hnhs2011).
+caracteristicaVinho('Violeta','Frutas negras','baunilha','Frutado','Aporte de madeira','Chocolate',sd2008).
+caracteristicaVinho('Cereja','Frutas negras','baunilha','Frutado','Elegante','Leve',bprcpn2012).
+caracteristicaVinho('Rubi','Frutas vermelhas','Framboesa','Frutado','Estruturado','Equilibrado',tm2012).
 caracteristicaVinho('Rubi','Frutas negras','Cacau','Elegante','Baunilha','Equilibrado',cdtrm2011).
-caracteristicaVinho('Rubi intenso','Cereja','ameixa','Encorpado','Aveludado','Final persistente',fbtgcs2011).
-caracteristicaVinho('Amarelo claro','Frutas tropicais','Grama cortada','Equilibrado','Fresco','Final persistente',ctrsb2012).
-caracteristicaVinho('Rubi intenso','Frutas vermelhas','Notas de Especiarias','Frutas vermelhas','Mineralidade','Final persistente',vmt2010).
+caracteristicaVinho('Rubi','Cereja','ameixa','Encorpado','Aveludado','Final persistente',fbtgcs2011).
+caracteristicaVinho('Amarelo','Frutas tropicais','Grama cortada','Equilibrado','Fresco','Final persistente',ctrsb2012).
+caracteristicaVinho('Rubi','Frutas vermelhas','Notas de Especiarias','Frutas vermelhas','Mineralidade','Final persistente',vmt2010).
 caracteristicaVinho('Palha','Frutas tropicais','Damasco','Complexo','Equilibrado','Corpo medio',fv2011).
-caracteristicaVinho('Rubi intenso','Frutas vermelhas','Framboesa','Frutado','Equilibrado','Taninos maduros',fdm2011).
-caracteristicaVinho('Amarelo palha','Lima','Maçã verde','Refrescante','Volumoso','Taninos maduros',paa2014).
-caracteristicaVinho('Amarelo palido','Frutas citricas','Flores','Leve','Elegante','Delicado',ce2010).
+caracteristicaVinho('Rubi','Frutas vermelhas','Framboesa','Frutado','Equilibrado','Taninos maduros',fdm2011).
+caracteristicaVinho('Amarelo','Lima','Maçã verde','Refrescante','Volumoso','Taninos maduros',paa2014).
+caracteristicaVinho('Amarelo','Frutas citricas','Flores','Leve','Elegante','Delicado',ce2010).
 caracteristicaVinho('Rubi','Frutas vermelhas','Ervas finas','Frutado','Macio','Final agradavel',cpn2011).
-caracteristicaVinho('Palha esverdeado','Frutos tropicais','Maracujá','Rico em frutas','Elegante','Refrescante',jrb2011).
+caracteristicaVinho('Palha','Frutos tropicais','Maracujá','Rico em frutas','Elegante','Refrescante',jrb2011).
 
 visual(Id,Visual) :- caracteristicaVinho(Visual,_,_,_,_,_,Id).
 olfativo(Id,Olfativo1,Olfativo2) :- caracteristicaVinho(_,Olfativo1,Olfativo2,_,_,_,Id).
@@ -370,8 +370,7 @@ comparaBebida(TeorAlcoolico,TipoBebida) :- (TipoBebida='Vodka';TipoBebida='Uísq
 
 queijo(Id,Amadurecimento) :- (Amadurecimento = carvalho8m; Amadurecimento = carvalho9m), (idAmadurecimento(Id,carvalho8m);idAmadurecimento(Id,carvalho9m)).
 queijo(Id,Amadurecimento) :- (Amadurecimento = carvalho12m; Amadurecimento = carvalho10m), (idAmadurecimento(Id,carvalho10m);idAmadurecimento(Id,carvalho12m)).
-queijo(Id,Amadurecimento) :- idAmadurecimento(Id,Amadurecimento)).
-
+queijo(Id,Amadurecimento) :- idAmadurecimento(Id,Amadurecimento).
 
 
 pergunta1 :- 
@@ -426,10 +425,77 @@ retornaVinho8(Id,Fruta) :- fruta(TipoVinho,Fruta),write(TipoVinho),nl,tipo(Id,Ti
 retornaVinho9(Id,TipoBebida) :- comparaBebida(TeorAlcoolico,TipoBebida), teoralcoolico(Id,TeorAlcoolico).
 
 resposta1(0,Param1):- !.
-resposta1(1,Param1):- Param1='Coqueteis',write('You choose the option A...'), nl, !.
-resposta1(2,Param1):- Param1='HH',write('You choose the option B...'), nl, !.
+resposta1(1,Param1):- Param1='Coqueteis', nl, !.
+resposta1(2,Param1):- Param1='HH', nl, !.
+resposta1(2,Param1):- Param1='Piscina', nl, !.
+resposta1(2,Param1):- Param1='Churrasco', nl, !.
+resposta1(2,Param1):- Param1='Almoço', nl, !.
+resposta1(2,Param1):- Param1='Jantar', nl, !.
+resposta1(2,Param1):- Param1='Festa', nl, !.
+resposta1(2,Param1):- Param1='Comemoração', nl, !.
+resposta1(2,Param1):- Param1='Datas especiais', nl, !.
 resposta1(_,Param1):- write('It is not an acceptable option'), nl, !.
 
+resposta2(0,Param2):- !.
+resposta2(1,Param2):- Param2='Serra Gaúcha', nl, !.
+resposta2(2,Param2):- Param2='Cordilheira dos Andes', nl, !.
+resposta2(3,Param2):- Param2='Mendoza', nl, !.
+resposta2(4,Param2):- Param2='Ibiza', nl, !.
+resposta2(5,Param2):- Param2='Paris', nl, !.
+resposta2(6,Param2):- Param2='Porto', nl, !.
+resposta2(7,Param2):- Param2='Toscana', nl, !.
+resposta2(8,Param2):- Param2='Sidney', nl, !.
+resposta2(_,Param2):- write('It is not an acceptable option'), nl, !.
+
+resposta3(0,Param3):- !.
+resposta3(1,Param3):- Param3='carne vermelha', nl, !.
+resposta3(2,Param3):- Param3='suína', nl, !.
+resposta3(3,Param3):- Param3='salada', nl, !.
+resposta3(4,Param3):- Param3='peixes', nl, !.
+resposta3(5,Param3):- Param3='frutos do mar', nl, !.
+resposta3(6,Param3):- Param3='massa', nl, !.
+resposta3(7,Param3):- Param3='lanche', nl, !.
+
+resposta4(0,Param4):- !.
+resposta4(1,Param4):- Param4='leve', nl, !.
+resposta4(2,Param4):- Param4='mediana', nl, !.
+resposta4(3,Param4):- Param4='com personalidade', nl, !.
+resposta4(4,Param4):- Param4='muita personalidade', nl, !.
+
+resposta5(0,Param5):- !.
+resposta5(1,Param5):- Param5='light', nl, !.
+resposta5(2,Param5):- Param5='magro', nl, !.
+resposta5(3,Param5):- Param5='mediano', nl, !.
+resposta5(4,Param5):- Param5='gorduroso', nl, !.
+
+resposta6(0,Param6):- !.
+resposta6(1,Param6):- Param6=carvalho6m, nl, !.
+resposta6(2,Param6):- Param6=carvalho8m, nl, !.
+resposta6(3,Param6):- Param6=carvalho10m, nl, !.
+resposta6(4,Param6):- Param6=nao, nl, !.
+resposta6(5,Param6):- Param6=sim, nl, !.
+
+resposta7(0,Param7):- !.
+resposta7(1,Param7):- Param7='Rubi', nl, !.
+resposta7(2,Param7):- Param7='Amarelo', nl, !.
+resposta7(3,Param7):- Param7='Palha', nl, !.
+resposta7(4,Param7):- Param7='Vermelho', nl, !.
+resposta7(5,Param7):- Param7='Violeta', nl, !.
+resposta7(6,Param7):- Param7='Cereja', nl, !.
+
+resposta8(0,Param8):- !.
+resposta8(1,Param8):- Param8='Cereja', nl, !.
+resposta8(2,Param8):- Param8='Ameixa', nl, !.
+resposta8(3,Param8):- Param8='Cassis', nl, !.
+resposta8(4,Param8):- Param8='Maçã', nl, !.
+resposta8(5,Param8):- Param8='Abacaxi', nl, !.
+
+resposta8(0,Param9):- !.
+resposta8(1,Param9):- Param9='Cerveja', nl, !.
+resposta8(2,Param9):- Param9='Vodka', nl, !.
+resposta8(3,Param9):- Param9='Uísque', nl, !.
+resposta8(4,Param9):- Param9='Rum', nl, !.
+resposta8(5,Param9):- Param9='Drinks', nl, !.
 
 ocasiao('Cerveja','Balada').
 ocasiao('Vinho','Jantar').
