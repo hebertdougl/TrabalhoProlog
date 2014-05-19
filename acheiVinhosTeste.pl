@@ -1,4 +1,5 @@
 :-dynamic pontuacao/2.
+:-dynamic maiorValor/1.
 
 %Vinho
 vinho(cddrcs2011,'Casillero Del Diablo Reserva Cabernet Sauvignon',2011,'Tinto','Cabernet Sauvignon',13.5,carvalho8m,15,4).
@@ -53,6 +54,7 @@ pontuacao(paa2014,0).
 pontuacao(ce2010,0).
 pontuacao(cpn2011,0).
 pontuacao(jrb2011,0).
+maiorValor(0).
 
 %Localizacao
 localizacao('Viña Concha Y Toro','Chile','Valle Central').
@@ -389,6 +391,8 @@ pergunta1 :-
 	esquece1(pontuacao(Id,Pontuacao)),
 	Pont is Pontuacao+10,
 	atualiza(pontuacao(Id,Pont)),nl,
+	esquece1(maiorValor(X)),
+	atualiza(maiorValor(Pont)),
 		pergunta2.
 
 pergunta2 :- 
@@ -409,6 +413,8 @@ pergunta2 :-
 	esquece1(pontuacao(Id,Pontuacao)),
 	Pont is Pontuacao+10,
 	atualiza(pontuacao(Id,Pont)),nl,
+	esquece1(maiorValor(X)),
+	atualiza(maiorValor(Pont)),
 		pergunta3.
 
 pergunta3 :- 
@@ -429,6 +435,8 @@ pergunta3 :-
 	esquece1(pontuacao(Id,Pontuacao)),
 	Pont is Pontuacao+10,
 	atualiza(pontuacao(Id,Pont)),nl,
+	esquece1(maiorValor(X)),
+	atualiza(maiorValor(Pont)),
 		pergunta4.
 
 pergunta4 :- 
@@ -445,6 +453,8 @@ pergunta4 :-
 	esquece1(pontuacao(Id,Pontuacao)),
 	Pont is Pontuacao+10,
 	atualiza(pontuacao(Id,Pont)),nl,
+	esquece1(maiorValor(X)),
+	atualiza(maiorValor(Pont)),
 	pergunta5.
 
 pergunta5 :- 
@@ -461,6 +471,8 @@ pergunta5 :-
 	esquece1(pontuacao(Id,Pontuacao)),
 	Pont is Pontuacao+10,
 	atualiza(pontuacao(Id,Pont)),nl,
+	esquece1(maiorValor(X)),
+	atualiza(maiorValor(Pont)),
 	pergunta6.
 
 pergunta6 :- 
@@ -479,6 +491,8 @@ pergunta6 :-
 	esquece1(pontuacao(Id,Pontuacao)),
 	Pont is Pontuacao+10,
 	atualiza(pontuacao(Id,Pont)),nl,
+	esquece1(maiorValor(X)),
+	atualiza(maiorValor(Pont)),
 	pergunta7.
 
 pergunta7 :- 
@@ -497,6 +511,8 @@ pergunta7 :-
 	esquece1(pontuacao(Id,Pontuacao)),
 	Pont is Pontuacao+10,	
 	atualiza(pontuacao(Id,Pont)),nl,
+	esquece1(maiorValor(X)),
+	atualiza(maiorValor(Pont)),
 	pergunta8.
 
 pergunta8 :- 
@@ -514,6 +530,8 @@ pergunta8 :-
 	esquece1(pontuacao(Id,Pontuacao)),
 	Pont is Pontuacao+10,
 	atualiza(pontuacao(Id,Pont)),nl,
+	esquece1(maiorValor(X)),
+	atualiza(maiorValor(Pont)),	
 	pergunta9.
 
 pergunta9 :- 
@@ -531,9 +549,12 @@ pergunta9 :-
 	esquece1(pontuacao(Id,Pontuacao)),
 	Pont is Pontuacao+10,
 	atualiza(pontuacao(Id,Pont)),nl,
-		pontuacaoMaxima(0,Maior),
-		write(40),
-		defineVinho(40),!.
+	esquece1(maiorValor(X)),
+	atualiza(maiorValor(Pont)),
+		maiorValor(X2),
+		%pontuacaoMaxima(0,Maior),
+		write('O vinha mais adequado ao seu perfil eh: '),
+		defineVinho(X2),!.
 
 
 retornaVinho1(Id,Ocasiao) :- momento(Ocasiao,TipoPrato), harmonizacao(Id,TipoPrato).
