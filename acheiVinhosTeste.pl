@@ -23,6 +23,7 @@
 :-dynamic combinacao/3.
 :-dynamic origem/2.
 :-dynamic harmonizacao/2.
+:-dynamic pontuacao/2.
 
 %Vinho
 vinho(cddrcs2011,'Casillero Del Diablo Reserva Cabernet Sauvignon',2011,'Tinto','Cabernet Sauvignon',13.5,carvalho8m,15,4).
@@ -56,6 +57,27 @@ idAmadurecimento(Id,Amadurecimento) :- vinho(Id,_,_,_,_,_,Amadurecimento,_,_).
 temperatura(Id,Temperatura):- vinho(Id,_,_,_,_,_,_,Temperatura,_).
 nota(Id,Nota):- vinho(Id,_,_,_,_,_,_,_,Nota).
 
+pontuacao(cddrcs2011,0).
+pontuacao(sr2008,0).
+pontuacao(mpv2010,0).
+pontuacao(mps2009,0).
+pontuacao(asb2011,0).
+pontuacao(fdldn2011,0).
+pontuacao(fdddd2011,0).
+pontuacao(hnhs2011,0).
+pontuacao(sd2008,0).
+pontuacao(bprcpn2012,0).
+pontuacao(tm2012,0).
+pontuacao(cdtrm2011,0).
+pontuacao(fbtgcs2011,0).
+pontuacao(ctrsb2012,0).
+pontuacao(vmt2010,0).
+pontuacao(fv2011,0).
+pontuacao(fdm2011,0).
+pontuacao(paa2014,0).
+pontuacao(ce2010,0).
+pontuacao(cpn2011,0).
+pontuacao(jrb2011,0).
 
 %Localizacao
 localizacao('Viña Concha Y Toro','Chile','Valle Central').
@@ -388,6 +410,10 @@ pergunta1 :-
  	read(X),
  	resposta1(X,Param1),nl,
  	write(Param1),nl,
+	retornaVinho1(Id,Param1),
+	esquece1(pontuacao(Id,Pontuacao)),
+	Pont is Pontuacao+10,
+	atualiza(pontuacao(Id,Pont)),nl,
 		pergunta2.
 
 pergunta2 :- 
@@ -404,6 +430,10 @@ pergunta2 :-
  	read(X),
  	resposta2(X,Param2),nl,
  	write(Param2),nl,
+	retornaVinho2(Id,Param2),
+	esquece1(pontuacao(Id,Pontuacao)),
+	Pont is Pontuacao+10,
+	atualiza(pontuacao(Id,Pont)),nl,
 		pergunta3.
 
 pergunta3 :- 
@@ -420,6 +450,10 @@ pergunta3 :-
  	read(X),
  	resposta3(X,Param3),nl,
  	write(Param3),nl,
+	retornaVinho3(Id,Param3),
+	esquece1(pontuacao(Id,Pontuacao)),
+	Pont is Pontuacao+10,
+	atualiza(pontuacao(Id,Pont)),nl,
 		pergunta4.
 
 pergunta4 :- 
@@ -432,6 +466,10 @@ pergunta4 :-
  	read(X),
  	resposta4(X,Param4),nl,
  	write(Param4),nl,
+	retornaVinho4(Id,Param4),
+	esquece1(pontuacao(Id,Pontuacao)),
+	Pont is Pontuacao+10,
+	atualiza(pontuacao(Id,Pont)),nl,
 	pergunta5.
 
 pergunta5 :- 
@@ -444,6 +482,10 @@ pergunta5 :-
  	read(X),
  	resposta5(X,Param5),nl,
  	write(Param5),nl,
+	retornaVinho5(Id,Param5),
+	esquece1(pontuacao(Id,Pontuacao)),
+	Pont is Pontuacao+10,
+	atualiza(pontuacao(Id,Pont)),nl,
 	pergunta6.
 
 pergunta6 :- 
@@ -458,6 +500,10 @@ pergunta6 :-
  	read(X),
  	resposta6(X,Param6),nl,
  	write(Param6),nl,
+	retornaVinho6(Id,Param6),
+	esquece1(pontuacao(Id,Pontuacao)),
+	Pont is Pontuacao+10,
+	atualiza(pontuacao(Id,Pont)),nl,
 	pergunta7.
 
 pergunta7 :- 
@@ -472,6 +518,10 @@ pergunta7 :-
  	read(X),
  	resposta7(X,Param7),nl,
  	write(Param7),nl,
+	retornaVinho7(Id,Param7),
+	esquece1(pontuacao(Id,Pontuacao)),
+	Pont is Pontuacao+10,	
+	atualiza(pontuacao(Id,Pont)),nl,
 	pergunta8.
 
 pergunta8 :- 
@@ -485,6 +535,10 @@ pergunta8 :-
 	read(X),
  	resposta8(X,Param8),nl,
  	write(Param8),nl,
+	retornaVinho8(Id,Param8),
+	esquece1(pontuacao(Id,Pontuacao)),
+	Pont is Pontuacao+10,
+	atualiza(pontuacao(Id,Pont)),nl,
 	pergunta9.
 
 pergunta9 :- 
@@ -497,7 +551,11 @@ pergunta9 :-
  	write('0. Sair'), nl,
  	read(X),
  	resposta9(X,Param9),nl,
- 	write(Param9),nl.
+ 	write(Param9),nl,
+	retornaVinho9(Id,Param9),
+	esquece1(pontuacao(Id,Pontuacao)),
+	atualiza(pontuacao(Id,Pont)),nl.
+
 
 retornaVinho1(Id,Ocasiao) :- momento(Ocasiao,TipoPrato), harmonizacao(Id,TipoPrato).
 retornaVinho2(Id,Lugar) :- lugar(Lugar,Pais),origem(Id,Pais).
@@ -599,4 +657,18 @@ sabendo(Nome):- (X='Balada'; X='Jantar'; X='Natal'; X='Comemorações'),ocasiao(
 pergunta :- write('Qual o id do vinho: '), read(Id), procuraId(Vinho,Id),nl,write('O vinho é: '),write(Vinho).
 pergunta22 :- write('Qual o tipo do vinho: '), read(Tipo),vinho(Id,_,_,Tipo,_,_,_,_,_),nl,write('O id do vinho é: '),nl,write(Id),funcaoTeste(Id).
 funcaoTeste(Id) :- nl,nome(Id,Nome),write('O nome é: '),write(Nome).
+
+esquece(X):-
+	esquece1(X), fail.
+esquece(X).
+
+esquece1(X):-
+	retract(X).
+esquece1(X).
+
+atualiza(X):-
+	esquece1(X), assert(X).
+
+memoriza(X):-
+	assert(X).
 
